@@ -758,6 +758,47 @@ body {
 }
 
 /* ============================================
+   Floating Home Button
+   ============================================ */
+.float-home-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    color: var(--color-bg);
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    z-index: 1100;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.float-home-btn svg {
+    width: 26px;
+    height: 26px;
+}
+
+.float-home-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+@media (max-width: 576px) {
+    .float-home-btn {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* ============================================
    Animations
    ============================================ */
 @keyframes fadeIn {
