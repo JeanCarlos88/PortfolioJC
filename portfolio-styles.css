@@ -494,6 +494,8 @@ body {
     border: 1px solid var(--color-border);
     transition: all var(--transition-smooth);
     cursor: default;
+    display: inline-flex;
+    align-items: center;
 }
 
 .skill-tag:hover {
@@ -501,6 +503,18 @@ body {
     color: var(--color-bg);
     transform: translateY(-3px);
     border-color: transparent;
+}
+
+.skill-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    display: inline-block;
+    filter: invert(1) brightness(1.1);
+}
+
+.skill-tag:hover .skill-icon {
+    filter: none;
 }
 
 /* ============================================
