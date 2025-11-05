@@ -427,6 +427,27 @@ body {
 
 .info-icon {
     font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+
+.info-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Evita que textos longos (e-mail) estourem o container */
+.info-item span:last-child {
+    min-width: 0;
+}
+
+.info-item .info-email {
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ============================================
