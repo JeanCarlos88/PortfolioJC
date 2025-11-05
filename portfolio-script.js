@@ -237,3 +237,47 @@ if ('performance' in window) {
         console.log(`⚡ Page loaded in ${pageLoadTime}ms`);
     });
 }
+
+// ============================================
+// Project Image Modal
+// ============================================
+const projectImage = document.querySelector('.project-image');
+const imageModal = document.getElementById('image-modal');
+const imageModalImg = document.getElementById('image-modal-img');
+const imageModalClose = document.getElementById('image-modal-close');
+
+const openImageModal = (src, alt) => {
+    if (!imageModal || !imageModalImg) return;
+    imageModalImg.src = src;
+    imageModalImg.alt = alt || 'Pré-visualização';
+    imageModal.classList.add('open');
+    imageModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+};
+
+const closeImageModal = () => {
+    if (!imageModal) return;
+    imageModal.classList.remove('open');
+    imageModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+};
+
+if (projectImage) {
+    projectImage.addEventListener('click', () => openImageModal(projectImage.src, projectImage.alt));
+}
+
+if (imageModalClose) {
+    imageModalClose.addEventListener('click', closeImageModal);
+}
+
+if (imageModal) {
+    imageModal.addEventListener('click', (e) => {
+        if (e.target.dataset.close === 'modal' || e.target === imageModal) {
+            closeImageModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeImageModal();
+});

@@ -498,7 +498,7 @@ body {
     gap: var(--spacing-xs);
 }
 
-.centered-skill { }
+
 
 /* Força "Segurança & DevOps" a ficar na segunda linha e centralizada */
 .devops-skill {
@@ -758,6 +758,172 @@ body {
    ============================================ */
 .contact {
     background-color: var(--color-bg-secondary);
+}
+
+/* ============================================
+   Projects Section
+   ============================================ */
+.projects {
+    background:
+        linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(17,17,17,0.85) 100%),
+        url('github.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-title {
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.project-repo {
+    color: var(--color-bg);
+    background: var(--gradient-primary);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+}
+
+.project-desc {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-tags .tag {
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.3rem 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-xs);
+}
+
+.project-highlights {
+    list-style: none;
+    padding-left: 0;
+    color: var(--color-text-secondary);
+}
+
+.project-highlights li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.project-highlights li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+}
+
+/* Título com ícone do GitHub */
+.projects .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.github-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-text);
+}
+
+.project-image {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 230px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    cursor: zoom-in;
+}
+
+/* ============================================
+   Image Modal
+   ============================================ */
+.image-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.image-modal.open { display: flex; }
+
+.image-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+}
+
+.image-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.image-modal-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
 }
 
 .contact-content {
