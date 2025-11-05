@@ -458,6 +458,15 @@ body {
     gap: var(--spacing-lg);
 }
 
+.skills {
+    background:
+        linear-gradient(180deg, rgba(10, 10, 10, 0.85) 0%, rgba(17, 17, 17, 0.85) 100%),
+        url('skillsqa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .skill-category {
     background-color: var(--color-bg-secondary);
     padding: var(--spacing-md);
@@ -566,12 +575,38 @@ body {
     border: 1px solid var(--color-border);
     margin-left: var(--spacing-md);
     transition: all var(--transition-smooth);
+    position: relative;
 }
 
 .timeline-content:hover {
     border-color: var(--color-primary);
     transform: translateX(10px);
     box-shadow: var(--shadow-lg);
+}
+
+.company-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+}
+
+.company-logo.no-bg {
+    background-color: transparent;
+}
+
+.company-logo.cover {
+    object-fit: cover;
+}
+
+.company-logo.rf-logo {
+    width: 115px; /* +15px em relação ao padrão 100px */
 }
 
 .timeline-title {
