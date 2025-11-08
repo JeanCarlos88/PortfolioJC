@@ -770,6 +770,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: visible;
+    position: relative;
 }
 
 .projects-grid {
@@ -867,7 +869,9 @@ body {
    ============================================ */
 .achievements-section {
     margin-bottom: var(--spacing-lg);
+    margin-top: 120px;
     text-align: center;
+    overflow: visible;
 }
 
 .achievements-title {
@@ -883,9 +887,12 @@ body {
     align-items: center;
     gap: var(--spacing-md);
     flex-wrap: wrap;
+    overflow: visible;
+    position: relative;
 }
 
 .achievement-badge {
+    position: relative;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -894,10 +901,10 @@ body {
     justify-content: center;
     border: 3px solid rgba(255, 255, 255, 0.3);
     transition: all var(--transition-smooth);
-    cursor: default;
+    cursor: pointer;
     box-shadow: var(--shadow-md);
     background-color: var(--color-bg-tertiary);
-    overflow: hidden;
+    overflow: visible;
 }
 
 .achievement-badge:hover {
@@ -911,6 +918,139 @@ body {
     height: 100%;
     object-fit: contain;
     padding: 8px;
+    pointer-events: none;
+}
+
+/* Achievement Tooltip */
+.achievement-tooltip {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+    pointer-events: none;
+    white-space: normal;
+}
+
+.achievement-badge:hover .achievement-tooltip,
+.achievement-badge:focus .achievement-tooltip {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.achievement-badge[data-badge="galaxy-brain"] .tooltip-icon-wrapper {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+.achievement-badge[data-badge="pull-shark"] .tooltip-icon-wrapper {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.achievement-badge[data-badge="quickdraw"] .tooltip-icon-wrapper {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.tooltip-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.tooltip-content {
+    padding: 16px;
+    background-color: var(--color-bg-tertiary);
+}
+
+.tooltip-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 4px 0;
+}
+
+.tooltip-subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0 0 12px 0;
+}
+
+.tooltip-separator {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 12px 0;
+}
+
+.tooltip-history {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.history-icon {
+    font-size: 16px;
+}
+
+/* Tooltip arrow */
+.achievement-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--color-bg-tertiary);
+}
+
+/* Responsive adjustments for tooltips */
+@media (max-width: 768px) {
+    .achievement-tooltip {
+        width: 240px;
+        font-size: 0.9rem;
+    }
+    
+    .tooltip-icon {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 .project-image {
